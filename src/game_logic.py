@@ -1,7 +1,9 @@
 import random
 
 class RockPaperScissor:
-    def __init__(self, name):
+    """Main class for Rock Paper Scissors game.
+    """
+    def __init__(self, name: str):
         self.choices = ['rock', 'paper', 'scissors']
         self.player_name = name
 
@@ -13,9 +15,17 @@ class RockPaperScissor:
         return self.get_player_choice() # recursive method
 
     def get_computer_choice(self):
+        """Get computer choice randomly from the list of choices.
+        """
         return random.choice(self.choices)
 
-    def decide_winner(self, user_choice, computer_choice):
+    def decide_winner(self, user_choice: str, computer_choice: str) -> str:
+        """Decide the winner of the game.
+
+        :param user_choice: The user's choice.
+        :param computer_choice: The computer's choice.
+        :return: The result of the game.
+        """
         if user_choice == computer_choice:
             return "It's a Tie!"
 
@@ -27,12 +37,19 @@ class RockPaperScissor:
             return "Oh no! You lost!"
 
     def play(self):
+        """Play the game.
+        - get user choice
+        - get computer choice
+        - decide the winner
+        - print the result
+        """
         user_choice = self.get_player_choice()
         computer_choice = self.get_computer_choice()
         print(f"Computer's choice: {computer_choice}")
         print(self.decide_winner(user_choice, computer_choice))
 
 
+# Test case
 if __name__ == '__main__':
     game = RockPaperScissor('Sahar')
 
